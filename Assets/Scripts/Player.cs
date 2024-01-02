@@ -1,29 +1,31 @@
 using UnityEngine;
 
-public class Player 
+public class Player : PlayableObject
 {
     private string nickName;
     private float speed;
 
-    public Health health = new Health();
+    // public Health health = new Health();
 
+    /*
     public void Move(Vector3 direction)
     {
         Debug.Log($"Moving towards {direction}");
     }
+    */
 
-    public void Move()
+    public override void Move()
     {
-        Debug.Log($"Player Moving");
+        base.Move();
     }
 
-    public void Shoot(Vector3 direction, float speed)
+    public override void Shoot(Vector3 direction, float speed)
     {
         Debug.Log($"Shooting a bullet towards {direction} with a speed of {speed}");
     }
 
-    public void Die()
+    public override void Die()
     {
-        Debug.Log("Player Died");
+       base.Die();
     }
 }
