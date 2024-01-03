@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -32,5 +33,19 @@ public class Health
     public void DeductHealth(float valueToDeduct)
     {
         currentHealth -= valueToDeduct;
+    }
+
+    public float GetHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetHealth(float value)
+    {
+        if (value > maxHealth || value < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(value), $"Valid range for health is between 0 and {maxHealth}");
+        }
+        currentHealth = value;
     }
 }

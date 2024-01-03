@@ -3,22 +3,10 @@ using UnityEngine;
 public class Player : PlayableObject
 {
     private string nickName;
-    private float speed;
+    [SerializeField] private Camera cam;
+    [SerializeField] private float speed;
 
-    // public Health health = new Health();
-
-    /*
-    public void Move(Vector3 direction)
-    {
-        Debug.Log($"Moving towards {direction}");
-    }
-    */
-
-    public override void Move()
-    {
-        base.Move();
-    }
-
+    private Rigidbody3D playerRB;
     public override void Shoot(Vector3 direction, float speed)
     {
         Debug.Log($"Shooting a bullet towards {direction} with a speed of {speed}");
@@ -26,6 +14,24 @@ public class Player : PlayableObject
 
     public override void Die()
     {
-       base.Die();
+      
+    }
+
+    public override void Move(Vector2 direction, Vector2 target)
+    {
+        playerRB.velocity = direction * speed * Time.deltaTime;
+        var playerScreenPos = cam.WorldToScreenPoint(transform.position);
+
+        //TODO: Target and Rotation
+    }
+
+    public override void Attack(float interval)
+    {
+       
+    }
+
+    public override void GetDamage(float damage)
+    {
+        
     }
 }
