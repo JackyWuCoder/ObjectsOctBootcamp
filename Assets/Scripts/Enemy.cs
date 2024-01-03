@@ -6,9 +6,9 @@ public class Enemy : PlayableObject
     private float speed;
     private EnemyType enemyType;
 
-    public override void Shoot(Vector3 direction, float speed)
+    public override void Shoot()
     {
-        Debug.Log($"Shooting a bullet towards {direction} with a speed of {speed}");
+        Debug.Log($"Shooting a bullet");
     }
 
     public override void Die()
